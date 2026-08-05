@@ -123,8 +123,11 @@ with st.expander("🔑 Gemini API 키 발급 방법 (무료)"):
         3. 아래 입력칸에 붙여넣기 (무료 티어로 충분합니다)
         """
     )
-
-api_key = st.text_input("Gemini API 키", type="password", help="발급받은 키를 붙여넣으세요")
+# Secrets에 키가 있으면 자동 사용, 없으면 입력칸 표시 (로컬 테스트 대비)
+if "GEMINI_API_KEY" in st.secrets:
+    api_key = st.secrets["GEMINI_API_KEY"]
+else:
+    api_key = st.text_input("Gemini API 키", type="password", help="발급받은 키를 붙여넣으세요")
 
 brand = st.text_input("브랜드/매장 이름", value="더마코스")
 category = st.text_input("주력 상품 카테고리", value="스킨케어")
