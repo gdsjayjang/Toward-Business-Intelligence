@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 
 def data_loader():
-    FILE_ID = '1D6qTqLyiTczXc6q4xwZuzWHgvmgOB04B'
+    FILE_ID = '1XJzqX42pfUBUWwitvTYkYu8KQQ84tBYY'
     url = f'https://drive.google.com/uc?id={FILE_ID}'
     # path = './data/'
     # data = 'data_clean.parquet'
