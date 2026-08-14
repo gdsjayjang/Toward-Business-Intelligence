@@ -1,8 +1,5 @@
 """
-AACE Mini - 개인화 CRM 캠페인 데모
-CSV 업로드 → 고객 세그먼트 분류 → 세그먼트별 맞춤 메시지 생성
-
-실행: streamlit run app.py
+TBI
 """
 import pandas as pd
 import streamlit as st
@@ -16,5 +13,5 @@ df = cached_loader()
 print(df.head(5))
 print('LOAD OK')
 
-st.header('고객 나이 분포')
+st.header('고객 나이 분포vh')
 st.bar_chart(dist_age(df))
