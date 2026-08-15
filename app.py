@@ -9,7 +9,7 @@ from src.data_loader import data_loader
 # DATA LOAD
 cached_loader = st.cache_data(data_loader)
 df = cached_loader()
-
+# df = data_loader()
 print(df.head(5))
 print('LOAD OK')
 
