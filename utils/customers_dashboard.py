@@ -1,5 +1,5 @@
 '''
-merged_df를 각 고객에 대해 요약
+merged_df를 각 고객에 대해 요약 + RFM 세그먼트 부착
 '''
 import pandas as pd
 
@@ -13,7 +13,7 @@ customer_table = df.groupby('customer_id').agg(
     club_member_status=('club_member_status', 'first'),
     fashion_news_frequency=('fashion_news_frequency', 'first'),
     last_purchase=('t_dat', 'max'),             # R, Recency: 마지막 구매 일자
-    purchase_count=('t_dat', 'count'),          # F, Frequency: 구매 빈도
+    purchase_count=('t_dat', 'count'),          # F, Frequency: 구매 횟수
     total_spent=('price', 'sum'),               # M, Monetary: 구매 금액
 ).reset_index()
 
