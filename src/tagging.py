@@ -1,7 +1,7 @@
 import json
 from google import genai
 
-def memo2tags(memo, api_key, model='gemini-flash-latest'):
+def memo2tags(memo, api_key, model='gemini-3.5-flash-lite'):
     if not memo or not memo.strip(): return []
 
     client = genai.Client(api_key=api_key)

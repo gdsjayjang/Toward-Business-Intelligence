@@ -2,7 +2,7 @@ from google import genai
 
 from src.badge import news_frequency_label
 
-def generate_talking_points(profile, tags, api_key, model='gemini-flash-latest'):
+def generate_talking_points(profile, tags, api_key, model='gemini-3.5-flash-lite'):
     '''세그먼트·RFM·태그 기반 실무자용 응대 토킹포인트를 생성'''
     news = news_frequency_label(profile['fashion_news_frequency'])
     tags_text = ', '.join(tags) if tags else '없음'
