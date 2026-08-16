@@ -1,11 +1,10 @@
 import streamlit as st
 
-from src.loaders import load_customers
+from src.loaders import load_customers, cached_talking_points
 from src.customer_profile import get_customer_profile
 from src.badge import club_status_badge, news_frequency_badge, segment_badge
 
 from src.tagging import memo2tags
-from src.message_gen import generate_talking_points
 
 st.title('고객 응대 페이지')
 
@@ -69,10 +68,9 @@ if tags:
 st.subheader('응대 토킹포인트')
 
 if st.button('토킹포인트 생성'):
+    st.session_state[f'show_points_{customer_id}'] = True
+
+if st.session_state.get(f'show_points_{customer_id}'):
     api_key = st.secrets['GENAI_API_KEY']
-
-    with st.spinner('생성 중...'):
-        st.session_state[f'points_{customer_id}'] = generate_talking_points(profile, tags, api_key)
-
-if f"points_{customer_id}" in st.session_state:
-    st.info(st.session_state[f"points_{customer_id}"])
+    points = cached_talking_points(customer_id, tuple(tags), profile, api_key)
+    st.info(points)
