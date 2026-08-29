@@ -1,8 +1,9 @@
 from google import genai
 
 from src.badge import news_frequency_label
+from src.genai_config import DEFAULT_GENAI_MODEL
 
-def generate_talking_points(profile, tags, api_key, model='gemini-3.5-flash-lite'):
+def generate_talking_points(profile, tags, api_key, model=DEFAULT_GENAI_MODEL):
     '''세그먼트·RFM·태그 기반 실무자용 응대 토킹포인트를 생성'''
     news = news_frequency_label(profile['fashion_news_frequency'])
     tags_text = ', '.join(tags) if tags else '없음'
@@ -16,9 +17,9 @@ def generate_talking_points(profile, tags, api_key, model='gemini-3.5-flash-lite
         "- 번호 매긴 목록으로만 출력하고 서론·맺음말은 쓰지 마\n\n"
         "[고객 정보]\n"
         f"- 세그먼트: {profile['segment']}\n"
-        f"- 최근 방문: {profile['recency_days']}일 전\n"
-        f"- 총 구매 횟수: {profile['frequency']}회\n"
-        f"- 총 구매액: {profile['monetary']:.2f}\n"
+        f"- 최근 방문: {profile['days_since_last_purchase']}일 전\n"
+        f"- 총 구매 횟수: {profile['purchase_count']}회\n"
+        f"- 총 구매액: {profile['total_spent']:.2f}\n"
         f"- 나이: {profile['age']}세\n"
         f"- 뉴스 수신: {news}\n"
         f"- 직원 메모 태그: {tags_text}\n"

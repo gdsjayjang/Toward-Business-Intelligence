@@ -1,7 +1,7 @@
-from src.data_loader import data_loader
+from src.raw_loader import load_raw_customers
 from src.segmentation import assign_segments
 
-df = assign_segments(data_loader())
+df = assign_segments(load_raw_customers())
 print(df["segment"].value_counts())
 print(df["segment"].value_counts(normalize=True).round(3))
 

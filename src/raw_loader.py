@@ -1,6 +1,6 @@
 import pandas as pd
 
-def data_loader():
+def load_raw_customers():
     path = 'data/customers_dashboard.parquet'
 
     df = pd.read_parquet(path)

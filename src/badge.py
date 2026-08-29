@@ -1,5 +1,7 @@
 import pandas as pd
 
+from src.segments import SEGMENT_COLORS
+
 CLUB_STATUS_COLORS = {
     'ACTIVE':       'green',
     'PRE-CREATE':   'blue',
@@ -15,13 +17,6 @@ NEWS_FREQUENCY_COLORS = {
     '월간 수신':    'blue',
     '미수신':       'red',
     '정보 없음':    'grey',}
-
-SEGMENT_COLORS = {
-    'VIP':          'violet',
-    '충성':         'green',
-    '신규':         'blue',
-    '이탈위험':     'red',
-    '일반':         'grey',}
 
 
 def club_status_badge(value):
@@ -43,5 +38,5 @@ def news_frequency_badge(value):
 def segment_badge(value):
     '''세그먼트 -> 색상 매핑'''
     if pd.isna(value): return ':grey[**미분류**]'
-    color = SEGMENT_COLORS.get(value, 'gery')
+    color = SEGMENT_COLORS.get(value, 'grey')
     return f":{color}[**{value}**]"

@@ -1,17 +1,11 @@
 """
 TBI
 """
-import pandas as pd
 import streamlit as st
 from src.eda import dist_age
-from src.data_loader import data_loader
+from src.loaders import load_customers
 
-# DATA LOAD
-cached_loader = st.cache_data(data_loader)
-df = cached_loader()
-# df = data_loader()
-print(df.head(5))
-print('LOAD OK')
+df = load_customers()
 
-st.header('고객 나이 분포vh')
+st.header('고객 나이 분포')
 st.bar_chart(dist_age(df))

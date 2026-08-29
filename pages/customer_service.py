@@ -45,9 +45,9 @@ with st.container(border=True):
 # RFM
 with st.container(border=True):
     c1, c2, c3 = st.columns(3)
-    c1.metric('**Recency** (마지막 방문)', f'{profile["recency_days"]}일 전')
-    c2.metric('**Frequency** (방문 횟수)', f'{profile["frequency"]}회')
-    c3.metric('**Monetary** (총 구매금액)', f'${profile["monetary"]:.2f}')
+    c1.metric('**Recency** (마지막 방문)', f'{profile["days_since_last_purchase"]}일 전')
+    c2.metric('**Frequency** (방문 횟수)', f'{profile["purchase_count"]}회')
+    c3.metric('**Monetary** (총 구매금액)', f'${profile["total_spent"]:.2f}')
 
 # 직원 메모 -> 태그
 st.subheader('직원 메모')

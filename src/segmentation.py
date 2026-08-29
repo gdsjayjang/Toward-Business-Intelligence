@@ -1,5 +1,7 @@
 import pandas as pd
 
+from src.segments import VIP, CHURN_RISK, LOYAL, NEW, REGULAR
+
 def assign_segments(customers):
     df = customers.copy()
     
@@ -17,7 +19,7 @@ def assign_segments(customers):
 
     # monetary: 값이 클수록 좋음
     df['m_score'] = pd.qcut(
-        df['purchase_count'], 4, labels=[1, 2, 3, 4]).astype(int)
+        df['total_spent'], 4, labels=[1, 2, 3, 4]).astype(int)
 
     # 세그먼트 규칙
     def label(row):
@@ -28,13 +30,13 @@ def assign_segments(customers):
         신규: # 최근 왔지만 아직 구매 적음
         나머지 일반
         '''
-        r, f, m = row["r_score"], row["f_score"], row["m_score"]
-        if r == 4 and f == 4 and m == 4: return "VIP"
-        if (f >= 3 or m >= 3) and r <= 2: return "이탈위험"
-        if r >= 3 and f >= 3 and m >= 3: return "충성"
-        if r >= 3 and f <= 1: return "신규"
-        return "일반"
+        r, f, m = row['r_score'], row['f_score'], row['m_score']
+        if r == 4 and f == 4 and m == 4: return VIP
+        if (f >= 3 or m >= 3) and r <= 2: return CHURN_RISK
+        if r >= 3 and f >= 3 and m >= 3: return LOYAL
+        if r >= 3 and f <= 1: return NEW
+        return REGULAR
 
-    df["segment"] = df.apply(label, axis=1)
+    df['segment'] = df.apply(label, axis=1)
 
     return df

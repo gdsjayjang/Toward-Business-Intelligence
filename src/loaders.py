@@ -1,12 +1,12 @@
 import streamlit as st
 
-from src.data_loader import data_loader
+from src.raw_loader import load_raw_customers
 from src.segmentation import assign_segments
 from src.message_gen import generate_talking_points
 
 @st.cache_data
 def load_customers():
-    df = data_loader()
+    df = load_raw_customers()
     return assign_segments(df)
 
 @st.cache_data(show_spinner='토킹포인트 생성 중...')

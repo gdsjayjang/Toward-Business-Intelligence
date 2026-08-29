@@ -9,9 +9,9 @@ def get_customer_profile(customer_id, data):
     return {
         'customer_id': customer_id,
         # RFM
-        'recency_days': int(r['days_since_last_purchase']),
-        'frequency': int(r['purchase_count']),
-        'monetary': float(r['total_spent']),
+        'days_since_last_purchase': int(r['days_since_last_purchase']),
+        'purchase_count': int(r['purchase_count']),
+        'total_spent': float(r['total_spent']),
         # 인구통계
         'age': int(r['age']),
         'club_member_status': r['club_member_status'],
