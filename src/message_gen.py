@@ -1,7 +1,7 @@
 from google import genai
 
 from src.badge import news_frequency_label
-from src.genai_config import DEFAULT_GENAI_MODEL
+from configs.genai_config import DEFAULT_GENAI_MODEL
 
 def generate_talking_points(profile, tags, api_key, model=DEFAULT_GENAI_MODEL):
     '''세그먼트·RFM·태그 기반 실무자용 응대 토킹포인트를 생성'''

@@ -18,7 +18,7 @@ st.divider()
 
 # 페이지 안내
 st.subheader('🧭 페이지 안내')
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     with st.container(border=True):
         st.markdown('#### 🧑‍💼 고객 응대')
@@ -29,6 +29,11 @@ with col2:
         st.markdown('#### 📊 경영진 대시보드')
         st.caption('전체 고객 현황과 세그먼트별 지표를 한눈에 확인합니다.')
         st.page_link('pages/executive_bi.py', label='경영진 대시보드로 이동', icon='➡️')
+with col3:
+    with st.container(border=True):
+        st.markdown('#### 🤖 BI 어시스턴트')
+        st.caption('세그먼트·지표 정의 등 사내 문서에 근거해 답하는 RAG 기반 QA 어시스턴트입니다.')
+        st.page_link('pages/bi_assistant.py', label='BI 어시스턴트로 이동', icon='➡️')
 
 st.divider()
 

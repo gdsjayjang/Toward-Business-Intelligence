@@ -1,7 +1,7 @@
 import json
 from google import genai
 
-from src.genai_config import DEFAULT_GENAI_MODEL
+from configs.genai_config import DEFAULT_GENAI_MODEL
 
 def memo2tags(memo, api_key, model=DEFAULT_GENAI_MODEL):
     if not memo or not memo.strip(): return []
