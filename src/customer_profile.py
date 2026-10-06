@@ -17,5 +17,7 @@ def get_customer_profile(customer_id, data):
         'club_member_status': r['club_member_status'],
         "fashion_news_frequency": r["fashion_news_frequency"],
         # 세그먼트
-        'segment': r['segment']
+        'segment': r['segment'],
+        # 최근 구매 상품 유형 (집계 데이터에 있을 때만)
+        'recent_items': r['recent_items'].split('|') if isinstance(r.get('recent_items'), str) else [],
     }

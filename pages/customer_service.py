@@ -34,10 +34,11 @@ data = load_customers()
 
 with st.expander('🔧 테스트용 고객 ID (개발용)'):
     st.code(
-        '0000423b00ade91418cceaf3b26c6af3dd342b51fd051eec9c12fb36984420fa\n'
-        'ffd7d77fb2d081a05c849bc78a1a1550ff663d7a483bae58ec31923248965e2a\n'
-        'fff15f528e303627d0dc8b0e9a69fd878a05085b42e72a3688f2c89f1180d979\n'
-        '45fec77a87ca372f03b944394b4560580a3bd806a7aa30c6418c909ea3acf98e'
+        '2e24cdf0168fd00cf91efd7fa6cba174ef31e34c9d1f5da11bc3255b8eb1fe3e\n' # VIP
+        '0000423b00ade91418cceaf3b26c6af3dd342b51fd051eec9c12fb36984420fa\n' # 충성
+        'ffd7d77fb2d081a05c849bc78a1a1550ff663d7a483bae58ec31923248965e2a\n' # 일반
+        'fff15f528e303627d0dc8b0e9a69fd878a05085b42e72a3688f2c89f1180d979\n' # 이탈위험
+        '00012315fd38859ff2c446876ca507abbcbcf582d0e266b1b696941c16e777a2'   # 신규
     )
 
 customer_id = st.text_input('🔍 고객 ID 검색', placeholder='고객 ID를 입력하세요...')

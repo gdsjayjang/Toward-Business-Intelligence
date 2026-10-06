@@ -38,5 +38,8 @@ def assign_segments(customers):
         return REGULAR
 
     df['segment'] = df.apply(label, axis=1)
+    
+    # 세그먼트 각 파일별로 저장
+    # for seg, g in df.groupby('segment'): g.to_csv(f'segment_{seg}.csv', index=False, encoding='utf-8-sig')
 
     return df
