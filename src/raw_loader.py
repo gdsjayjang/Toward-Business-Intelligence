@@ -8,7 +8,7 @@ def load_raw_customers():
 
     df = pd.read_parquet(path)
 
-    # 최근 구매 상품 유형 (utils/customer_recent_items.py로 생성, 없으면 생략)
+    # 최근 구매 상품 유형 (utils/customer_recent_items.py로 생성)
     if os.path.exists(RECENT_ITEMS_PATH):
         df = df.merge(pd.read_parquet(RECENT_ITEMS_PATH), on='customer_id', how='left')
 

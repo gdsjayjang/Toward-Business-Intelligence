@@ -22,7 +22,7 @@ recent = (
     .drop_duplicates(['customer_id', 'product_type_name'])   # 같은 유형은 가장 최근 것만
 )
 recent = recent[recent.groupby('customer_id').cumcount() < TOP_N]
-# 리스트 대신 '|'로 이은 문자열로 저장 (리스트 컬럼은 st.cache_data 복원이 매우 느림)
+
 recent = recent.groupby('customer_id')['product_type_name'].agg('|'.join).rename('recent_items').reset_index()
 
 recent.to_parquet(OUT_PATH, index=False)
