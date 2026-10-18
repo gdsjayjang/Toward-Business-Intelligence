@@ -79,7 +79,7 @@ data/
   customers_dashboard.parquet   # 고객 단위 집계 데이터(앱이 실제로 사용)
   sample_customers.csv          # 샘플 데이터
 utils/customers_dashboard.py    # 원천 거래 로그 → 고객 단위 RFM 집계 오프라인 스크립트
-notebooks/                      # 초기 프로토타입(AACE Mini) — 세그먼트→메시지 생성 미니 데모, 본 앱과 별도
+notebooks/                      # 원천 CSV 확인 노트북(1~3) + 병합 데이터 생성 스크립트(4_merged_df.py)
 configs/, models/                # 향후 확장을 위한 자리(현재 비어있는 스텁)
 ```
 

@@ -3,9 +3,7 @@ merged_df를 각 고객에 대해 요약 + RFM 세그먼트 부착
 '''
 import pandas as pd
 
-# merged_df.csv가 원본
-# 나중에 드라이브로 변경하기
-df = pd.read_parquet('data/data_clean.parquet')
+df = pd.read_parquet('data/merged_df.parquet')
 
 # 고객 단위 집계
 customer_table = df.groupby('customer_id').agg(

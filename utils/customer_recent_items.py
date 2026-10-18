@@ -1,12 +1,12 @@
 '''
 고객별 최근 구매 상품 유형 집계 (응대 멘트 개인화용)
-거래(data_clean) + 상품(articles)을 article_id로 연결해
+거래(merged_df) + 상품(articles)을 article_id로 연결해
 최근 거래 순으로 중복 없이 최대 3개의 product_type_name을 저장
 '''
 import sys
 import pandas as pd
 
-TX_PATH = sys.argv[1] if len(sys.argv) > 1 else 'data/data_clean.parquet'
+TX_PATH = sys.argv[1] if len(sys.argv) > 1 else 'data/merged_df.parquet'
 ARTICLES_PATH = sys.argv[2] if len(sys.argv) > 2 else 'data/articles.csv'
 OUT_PATH = 'data/customer_recent_items.parquet'
 TOP_N = 3

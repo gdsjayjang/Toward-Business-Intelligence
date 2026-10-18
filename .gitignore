@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Raw / merged data (대용량, notebooks/4_merged_df.py로 생성)
+data/raw/
+data/merged_df.csv
+data/merged_df.parquet
